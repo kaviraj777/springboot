@@ -11,11 +11,11 @@ import jakarta.persistence.Table;
 public class User {
     @Id
     private int id;
-    @Column(name="user_name")
+    @Column(name="user_name",length = 30,nullable = true)
     private String name;
-    @Column(name="user_email")
+    @Column(name="user_email",unique = true,nullable=true)
     private String email;
-    @Column(name="user_password")
+    @Column(name="user_password",length = 15)
     private String password;
     @Column(name="user_role")
     private String role;
