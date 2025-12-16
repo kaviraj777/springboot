@@ -19,17 +19,25 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllUsers() {
-        return userRepository.findAll
+        return userRepository.findAll();
     }
 
     @Override
-    public User updateUserById(int id, User user) {
-        throw new UnsupportedOperationException("Unimplemented method 'updateUserById'");
+    public User updateUserById(Long id, User user) {
+       Optional<User> existingUser= userRepositor.findById(id);
+       if(existingUser.isPresent()){
+        User isUser =existingUser.get()
+        isUser.setName(user.getName());
+        isUser.setEmail(user.getEmail());
+        isUser.setPassword(user.getPassword());
+        isUser.setRole(user.getRole());
+       }
+       return null;
     }
 
     @Override
-    public void deletUserById(int id) {
-        throw new UnsupportedOperationException("Unimplemented method 'deletUserById'");
+    public void deletUserById(Long id) {
+        userRepository.deleteById(id)
     }
     
 }
