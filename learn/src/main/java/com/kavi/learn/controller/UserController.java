@@ -3,6 +3,7 @@ package com.kavi.learn.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -36,6 +37,6 @@ public class UserController {
     @DeleteMapping("/user/{id}")
     public ResponsEntity<String> deleteUser(@PathVariable Long id){
         userService.deleteUserById(id);
-        return ResponseEntity.status(200).body("User record deleted successfully")
+        return ResponseEntity.status(200).body("User record deleted successfully");
     }
 }
