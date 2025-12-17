@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 public class User {
     @Id
-    private int id;
+    private Long id;
     @Column(name="user_name",length = 30,nullable = true)
     private String name;
     @Column(name="user_email",unique = true,nullable=true)
@@ -26,7 +26,7 @@ public class User {
     
    
 
-    public User(int id, String name, String email, String password, String role) {
+    public User(Long id, String name, String email, String password, String role) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -36,7 +36,7 @@ public class User {
 
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -66,7 +66,7 @@ public class User {
 
 
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
