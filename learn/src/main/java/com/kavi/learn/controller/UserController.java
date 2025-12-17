@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kavi.learn.service.User;
 import com.kavi.learn.service.UserService;
 
 @RestController
@@ -17,14 +19,14 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/save")
-    public ResponseEntity<user> saveUser(@ResponseBody User user){
+    public ResponseEntity<User> saveUser(@ResponseBody User user){
         User  newUser =userService.createUser(user);
         return ResponseEntity.status(201).body(newUser);
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<user>> getAllUser(){
-        List<user> user=userService.getAllUsers();
+    public ResponseEntity<List<User>> getAllUser(){
+        List<User> user=userService.getAllUsers();
         return ResponseEntity.status(200).body(users);
 
     }
